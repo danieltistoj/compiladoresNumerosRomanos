@@ -91,11 +91,20 @@ class Operadores {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\0\1\1\1\2\14\3\1\4\3\3\2\4\1\0"+
-    "\3\3\1\4\1\0\2\4";
+    "\1\0\1\1\1\2\5\3\1\4\4\3\1\5\3\3"+
+    "\1\6\6\3\2\6\1\0\2\3\3\5\5\3\1\7"+
+    "\1\0\4\3\1\10\2\3\1\11\1\12\1\13\1\3"+
+    "\1\6\1\0\1\6\4\5\4\3\1\14\1\3\2\7"+
+    "\3\0\1\3\2\11\1\0\3\3\2\10\1\3\1\15"+
+    "\1\3\2\12\2\13\1\16\1\6\1\5\1\3\2\14"+
+    "\1\0\1\3\1\14\3\7\1\0\1\17\2\0\1\17"+
+    "\1\0\1\11\1\0\1\11\1\3\2\15\1\0\3\10"+
+    "\1\3\3\12\3\13\2\16\1\14\1\0\3\14\1\0"+
+    "\2\17\2\0\1\17\1\11\1\15\1\0\1\15\3\16"+
+    "\4\14\1\17\1\0\2\17\1\15\4\17";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[29];
+    int [] result = new int[152];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -120,13 +129,28 @@ class Operadores {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\7\0\7\0\7\0\16\0\25\0\34\0\43"+
-    "\0\52\0\61\0\70\0\77\0\106\0\115\0\124\0\133"+
-    "\0\142\0\151\0\160\0\167\0\70\0\176\0\205\0\214"+
-    "\0\223\0\160\0\232\0\61\0\241";
+    "\0\0\0\7\0\7\0\16\0\25\0\34\0\43\0\52"+
+    "\0\16\0\61\0\70\0\77\0\106\0\115\0\124\0\133"+
+    "\0\142\0\151\0\160\0\167\0\176\0\205\0\214\0\223"+
+    "\0\232\0\77\0\241\0\250\0\7\0\257\0\266\0\275"+
+    "\0\304\0\313\0\322\0\331\0\340\0\347\0\356\0\365"+
+    "\0\374\0\u0103\0\u010a\0\u0111\0\u0118\0\u011f\0\u0126\0\u012d"+
+    "\0\u0134\0\u013b\0\223\0\u0142\0\70\0\u0149\0\7\0\u0150"+
+    "\0\u0157\0\u015e\0\u0165\0\u016c\0\u0173\0\u017a\0\u0181\0\u0188"+
+    "\0\u018f\0\u0196\0\u019d\0\u01a4\0\u01ab\0\u01b2\0\u0103\0\u01b9"+
+    "\0\u01c0\0\u01c7\0\u01ce\0\u01d5\0\u01dc\0\u01e3\0\u01ea\0\u01f1"+
+    "\0\u01f8\0\u01ff\0\u0206\0\u020d\0\u0214\0\u021b\0\u0222\0\u0229"+
+    "\0\u0230\0\u016c\0\u0237\0\u023e\0\u0245\0\u024c\0\7\0\u0253"+
+    "\0\u025a\0\u0261\0\u0268\0\u026f\0\u0276\0\u027d\0\u01ab\0\u0284"+
+    "\0\374\0\u028b\0\u0292\0\u01ce\0\u0299\0\u02a0\0\7\0\u02a7"+
+    "\0\u02ae\0\u02b5\0\7\0\u02bc\0\u02c3\0\7\0\u02ca\0\u02d1"+
+    "\0\u02d8\0\u0229\0\u02df\0\u0165\0\u02e6\0\u02ed\0\u02f4\0\u02fb"+
+    "\0\u0268\0\u0302\0\u0309\0\u0310\0\u0317\0\u028b\0\u031e\0\u01c7"+
+    "\0\u0325\0\7\0\u032c\0\u0333\0\u033a\0\7\0\u0341\0\u02f4"+
+    "\0\u0348\0\u034f\0\u0356\0\u035d\0\u0364\0\u036b\0\7\0\u0372";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[29];
+    int [] result = new int[152];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -149,20 +173,62 @@ class Operadores {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\2\1\3\1\4\1\5\1\6\1\7\1\10\12\0"+
-    "\1\11\1\0\1\12\1\13\3\0\1\14\1\0\1\15"+
-    "\1\16\3\0\1\17\1\0\1\20\3\0\1\21\1\14"+
-    "\1\21\1\15\1\22\3\0\1\23\1\0\1\24\1\25"+
-    "\3\0\1\26\6\0\1\25\6\0\1\27\1\0\2\4"+
-    "\3\0\1\30\6\0\1\14\1\0\1\15\1\22\3\0"+
-    "\1\31\10\0\1\20\4\0\1\14\1\0\1\15\4\0"+
-    "\1\14\1\0\1\15\1\21\3\0\1\32\1\0\1\24"+
-    "\1\25\3\0\1\33\1\0\1\24\6\0\1\34\4\0"+
-    "\1\4\6\0\1\27\6\0\1\13\6\0\1\33\1\0"+
-    "\1\35\4\0\1\33\3\0";
+    "\1\2\1\3\1\4\1\5\1\6\1\7\1\10\11\0"+
+    "\1\11\7\0\1\12\1\0\1\13\1\14\3\0\1\15"+
+    "\1\16\1\17\1\20\3\0\1\21\1\0\1\22\3\0"+
+    "\1\23\1\24\1\25\1\26\1\27\3\0\1\30\1\0"+
+    "\1\31\1\32\3\0\1\33\6\0\1\32\6\0\1\34"+
+    "\1\0\2\35\3\0\1\36\1\16\1\37\1\40\3\0"+
+    "\1\41\6\0\1\42\1\0\1\43\1\44\3\0\1\45"+
+    "\10\0\1\22\3\0\1\46\1\15\1\0\1\17\1\47"+
+    "\3\0\1\50\1\0\1\51\1\52\3\0\1\53\1\54"+
+    "\1\55\4\0\1\56\1\0\1\57\3\0\1\60\1\24"+
+    "\1\61\1\26\1\62\3\0\1\63\1\0\1\31\1\32"+
+    "\3\0\1\64\1\0\1\31\6\0\1\65\4\0\1\35"+
+    "\6\0\1\66\1\0\2\67\3\0\1\70\6\0\1\36"+
+    "\1\0\1\37\1\71\3\0\1\34\6\0\1\72\1\0"+
+    "\1\73\1\74\3\0\1\75\1\0\1\76\4\0\1\42"+
+    "\1\0\1\43\1\77\3\0\1\14\5\0\1\46\1\100"+
+    "\1\0\1\101\4\0\1\102\1\0\1\103\1\104\3\0"+
+    "\1\105\1\0\1\106\1\107\3\0\1\110\6\0\1\107"+
+    "\6\0\1\111\1\0\1\112\1\113\3\0\1\114\1\54"+
+    "\1\115\4\0\1\116\1\0\1\117\4\0\1\120\10\0"+
+    "\1\57\3\0\1\60\1\121\1\0\1\122\4\0\1\123"+
+    "\1\61\1\124\3\0\1\60\1\24\1\61\1\26\1\125"+
+    "\3\0\1\64\1\0\1\126\4\0\1\67\6\0\1\66"+
+    "\6\0\1\36\1\0\1\37\1\127\3\0\1\130\1\0"+
+    "\1\131\1\132\3\0\1\133\6\0\1\132\6\0\1\134"+
+    "\10\0\1\76\4\0\1\42\1\0\1\43\1\135\3\0"+
+    "\1\136\1\0\2\137\3\0\1\140\6\0\1\141\1\0"+
+    "\1\142\1\143\3\0\1\144\1\0\1\145\4\0\1\102"+
+    "\1\0\1\103\1\146\3\0\1\147\1\0\1\106\1\107"+
+    "\3\0\1\150\1\0\1\106\6\0\1\151\4\0\1\152"+
+    "\1\0\1\153\1\154\3\0\1\155\6\0\1\154\6\0"+
+    "\1\156\1\0\2\157\3\0\1\160\6\0\1\161\10\0"+
+    "\1\117\4\0\1\52\6\0\1\162\1\0\2\163\3\0"+
+    "\1\164\6\0\1\165\1\0\2\166\3\0\1\167\5\0"+
+    "\1\60\1\170\1\61\1\171\1\125\3\0\1\64\6\0"+
+    "\1\36\1\0\1\37\4\0\1\172\1\0\1\131\1\132"+
+    "\3\0\1\173\1\0\1\131\6\0\1\174\4\0\1\74"+
+    "\6\0\1\175\1\0\1\176\1\135\3\0\1\137\6\0"+
+    "\1\136\6\0\1\177\1\0\1\200\1\201\3\0\1\202"+
+    "\6\0\1\201\6\0\1\203\10\0\1\145\4\0\1\102"+
+    "\1\0\1\103\1\204\3\0\1\150\1\0\1\205\4\0"+
+    "\1\206\1\0\1\153\1\154\3\0\1\207\1\0\1\153"+
+    "\6\0\1\210\4\0\1\157\6\0\1\156\6\0\1\113"+
+    "\6\0\1\163\6\0\1\162\6\0\1\166\6\0\1\165"+
+    "\6\0\1\211\1\0\2\212\3\0\1\213\6\0\1\173"+
+    "\1\0\1\214\4\0\1\215\1\0\2\216\3\0\1\217"+
+    "\6\0\1\220\1\0\1\200\1\201\3\0\1\221\1\0"+
+    "\1\200\6\0\1\142\4\0\1\143\6\0\1\222\1\0"+
+    "\1\223\1\204\3\0\1\150\6\0\1\207\1\0\1\224"+
+    "\4\0\1\212\6\0\1\211\6\0\1\173\6\0\1\216"+
+    "\6\0\1\215\6\0\1\221\1\0\1\225\4\0\1\226"+
+    "\1\0\2\227\3\0\1\230\6\0\1\207\6\0\1\221"+
+    "\6\0\1\227\6\0\1\226\3\0";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[168];
+    int [] result = new int[889];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -205,10 +271,16 @@ class Operadores {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\3\11\21\1\1\0\4\1\1\0\2\1";
+    "\1\0\2\11\27\1\1\0\1\1\1\11\11\1\1\0"+
+    "\14\1\1\0\2\1\1\11\12\1\3\0\3\1\1\0"+
+    "\22\1\1\0\3\1\1\11\1\1\1\0\1\1\2\0"+
+    "\1\1\1\0\1\1\1\0\4\1\1\0\1\1\1\11"+
+    "\3\1\1\11\2\1\1\11\4\1\1\0\3\1\1\0"+
+    "\2\1\2\0\3\1\1\0\2\1\1\11\3\1\1\11"+
+    "\2\1\1\0\5\1\1\11\1\1";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[29];
+    int [] result = new int[152];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -682,22 +754,77 @@ class Operadores {
             { 
             }
             // fall through
-          case 5: break;
+          case 16: break;
           case 2:
             { System.out.print(yytext());
             }
             // fall through
-          case 6: break;
+          case 17: break;
           case 3:
             { System.out.println("Encontre un numero romano: "+yytext());
             }
             // fall through
-          case 7: break;
+          case 18: break;
           case 4:
-            { System.out.println("Error en el numero romano: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
+            { System.out.println("Error en el numero romano. Error tipo 4.3: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
             }
             // fall through
-          case 8: break;
+          case 19: break;
+          case 5:
+            { System.out.println("Error en el numero romano. Error tipo 1.2: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
+            }
+            // fall through
+          case 20: break;
+          case 6:
+            { System.out.println("Error en el numero romano. Error tipo conjunto de errores: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
+            }
+            // fall through
+          case 21: break;
+          case 7:
+            { System.out.println("Error en el numero romano. Error tipo 2.3: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
+            }
+            // fall through
+          case 22: break;
+          case 8:
+            { System.out.println("Error en el numero romano. Error tipo 2.1: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
+            }
+            // fall through
+          case 23: break;
+          case 9:
+            { System.out.println("Error en el numero romano. Error tipo 2.0: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
+            }
+            // fall through
+          case 24: break;
+          case 10:
+            { System.out.println("Error en el numero romano. Error tipo 1.3: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
+            }
+            // fall through
+          case 25: break;
+          case 11:
+            { System.out.println("Error en el numero romano. Error tipo 1.1: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
+            }
+            // fall through
+          case 26: break;
+          case 12:
+            { System.out.println("Error en el numero romano. Error tipo 2.2: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
+            }
+            // fall through
+          case 27: break;
+          case 13:
+            { System.out.println("Error en el numero romano. Error tipo 3.1: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
+            }
+            // fall through
+          case 28: break;
+          case 14:
+            { System.out.println("Error en el numero romano. Error tipo 1.0: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
+            }
+            // fall through
+          case 29: break;
+          case 15:
+            { System.out.println("Error en el numero romano. Error tipo 3.3: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
+            }
+            // fall through
+          case 30: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }

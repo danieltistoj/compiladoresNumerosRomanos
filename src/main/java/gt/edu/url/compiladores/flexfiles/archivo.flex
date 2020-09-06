@@ -51,7 +51,7 @@ ERROR_1_0 = {X}{4}{X}*({ROMANO_VI_IX}|{ROMANO_I_V})?                /*Error dono
 ERROR_2_0 = {Xn}{CONJUNTO_ERROR}                                    /*Error donde: X [Algun error (VI-IX)] | [Algun error (I-V)],XX[Algun error (VI-IX)] | [Algun error (I-V)],XXX[Algun error (VI-IX)] | [Algun error (I-V)]*/ /*CASE*/
 
 /*Fin*/
-/*Erroes de 40 a 50*/
+/*Erroes de 40 a 49*/
 ERROR_1_1 = {X}+{XL}{L}*({ROMANO_VI_IX}|{ROMANO_I_V})?             /*Error donde: XXLLLLLL, XXLLLLLLLL, XXL. Y todo lo demas bien*/ /*CASE*/
 ERROR_2_1 = {XL}{L}+({ROMANO_VI_IX}|{ROMANO_I_V})?                 /*Error donde: XLL, XLLLLLLLLLLL. Y todo lo demas bien*/ /*CASE*/
 ERROR_3_1 = {XL}{CONJUNTO_ERROR}                                   /*Error donde: XL [Error de I - IX]*/ /*CASE*/
@@ -71,6 +71,8 @@ ERROR_4_3 = {C}{C}+
 %%
 
 /**********INICIO DE LOS CASE**********/
+
+/**********Validaciones**********/
 
 /*Validacion de 1 al 5*/
 {ROMANO_I_V} {
@@ -100,10 +102,48 @@ System.out.println("Encontre un numero romano: "+yytext());
 {C} {
 System.out.println("Encontre un numero romano: "+yytext());
 }
-/*Errores*/
 
+/**********Errores***********/
+/*Errores del 1 al 9*/
 {CONJUNTO_ERROR} {
-System.out.println("Error en el numero romano: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
+System.out.println("Error en el numero romano. Error tipo conjunto de errores: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
+}
+/*Errores del 10 al 39*/
+{ERROR_1_0} {
+System.out.println("Error en el numero romano. Error tipo 1.0: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
+}
+{ERROR_2_0} {
+System.out.println("Error en el numero romano. Error tipo 2.0: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
+}
+/*Errores del 40 al 49*/
+{ERROR_1_1} {
+System.out.println("Error en el numero romano. Error tipo 1.1: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
+}
+{ERROR_2_1} {
+System.out.println("Error en el numero romano. Error tipo 2.1: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
+}
+{ERROR_3_1} {
+System.out.println("Error en el numero romano. Error tipo 3.1: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
+}
+/*Errores del 50 al 89*/
+{ERROR_1_2} {
+System.out.println("Error en el numero romano. Error tipo 1.2: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
+}
+{ERROR_2_2} {
+System.out.println("Error en el numero romano. Error tipo 2.2: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
+}
+/*Errores del 90 100*/
+{ERROR_1_3} {
+System.out.println("Error en el numero romano. Error tipo 1.3: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
+}
+{ERROR_2_3} {
+System.out.println("Error en el numero romano. Error tipo 2.3: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
+}
+{ERROR_3_3} {
+System.out.println("Error en el numero romano. Error tipo 3.3: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
+}
+{ERROR_4_3} {
+System.out.println("Error en el numero romano. Error tipo 4.3: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
 }
 /*Esto indica que hacer si encuentra un caracter que no se declarado, como se ha hecho con suma y con resta, esto funcionaria como un default en un swicht case en java   */
 .  { }
