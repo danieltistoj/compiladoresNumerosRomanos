@@ -59,13 +59,13 @@ ERROR_3_1 = {XL}{CONJUNTO_ERROR}                                   /*Error donde
 
 /*Errores de 50 al 89*/
 ERROR_1_2 = {L}{L}+({ROMANO_VI_IX}|{ROMANO_I_V}|{ROMANO_X_MAS})?   /*Error donde: LLLLLLLL, LL[Todo lo demas bien]*/ /*CASE*/
-ERROR_2_2 = {L}({ERROR_1_0}|{ERROR_2_0})                           /*Error donde: L [Errores tipo: ERROR_1_0 ó ERROR_2_0]*/ /*CASE*/
+ERROR_2_2 = {L}({ERROR_1_0}|{ERROR_2_0}|{CONJUNTO_ERROR})          /*Error donde: L [Errores tipo: ERROR_1_0 ó ERROR_2_0]*/ /*CASE*/
 /*Fin*/
 
 /*Errorres de 90 - 100*/
-ERROR_1_3 = {X}+{XC}{C}*({ROMANO_VI_IX}|{ROMANO_I_V})?              /*Error donde: XXC [lo demas bien], XXCCCC [lo demas bien], XXCCC*/ /*CASE*/
-ERROR_2_3 = {XC}{C}+({ROMANO_VI_IX}|{ROMANO_I_V})?                  /*Error donde: XCCCCC, XCC [lo demas bien]*/ /*CASE*/
-ERROR_3_3 = {XC}({ERROR_1_0}|{ERROR_2_0})                           /*Error donde: XC [Errores tipo: ERROR_1_0 ó ERROR_2_0]*/ /*CASE*/
+ERROR_1_3 = (({X}+{XC}{C}*)|({XC}{XC}+))({ROMANO_VI_IX}|{ROMANO_I_V})?            /*Error donde: XXC [lo demas bien], XXCCCC [lo demas bien], XXCCC, XCXC*/ /*CASE*/
+ERROR_2_3 = {XC}{C}+({ROMANO_VI_IX}|{ROMANO_I_V})?                                /*Error donde: XCCCCC, XCC [lo demas bien]*/ /*CASE*/
+ERROR_3_3 = ({XC}|({XC}{XC}{XC}+))({ERROR_1_0}|{ERROR_2_0})                       /*Error donde: XC [Errores tipo: ERROR_1_0 ó ERROR_2_0], XCXC[Errores tipo: ERROR_1_0 ó ERROR_2_0]*/ /*CASE*/
 ERROR_4_3 = {C}{C}+
 /*Fin*/
 %%
