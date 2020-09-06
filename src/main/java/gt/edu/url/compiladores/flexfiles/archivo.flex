@@ -60,6 +60,7 @@ ERROR_3_1 = {XL}{CONJUNTO_ERROR}                                   /*Error donde
 /*Errores de 50 al 89*/
 ERROR_1_2 = {L}{L}+({ROMANO_VI_IX}|{ROMANO_I_V}|{ROMANO_X_MAS})?   /*Error donde: LLLLLLLL, LL[Todo lo demas bien]*/ /*CASE*/
 ERROR_2_2 = {L}({ERROR_1_0}|{ERROR_2_0}|{CONJUNTO_ERROR})          /*Error donde: L [Errores tipo: ERROR_1_0 ó ERROR_2_0]*/ /*CASE*/
+ERROR_3_2 = {L}({L}|{X})+((({ROMANO_VI_IX}|{ROMANO_I_V}|{ROMANO_X_MAS})?)|({ERROR_1_0}|{ERROR_2_0}|{CONJUNTO_ERROR})) /*Errores de tipo: LXLXLXLXXXLLL [Bien]|[Mal]*/
 /*Fin*/
 
 /*Errorres de 90 - 100*/
@@ -131,6 +132,9 @@ System.out.println("Error en el numero romano. Error tipo 1.2: "+yytext()+"\nEn 
 }
 {ERROR_2_2} {
 System.out.println("Error en el numero romano. Error tipo 2.2: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
+}
+{ERROR_3_2} {
+System.out.println("Error en el numero romano. Error tipo 3.2: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
 }
 /*Errores del 90 100*/
 {ERROR_1_3} {
