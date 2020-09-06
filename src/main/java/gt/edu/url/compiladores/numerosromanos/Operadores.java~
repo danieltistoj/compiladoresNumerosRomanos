@@ -91,8 +91,8 @@ class Operadores {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\0\1\1\1\2\14\3\1\4\3\3\2\5\1\0"+
-    "\3\3\1\6\1\0\2\5";
+    "\1\0\1\1\1\2\14\3\1\4\3\3\2\4\1\0"+
+    "\3\3\1\4\1\0\2\4";
 
   private static int [] zzUnpackAction() {
     int [] result = new int[29];
@@ -682,32 +682,22 @@ class Operadores {
             { 
             }
             // fall through
-          case 7: break;
+          case 5: break;
           case 2:
             { System.out.print(yytext());
             }
             // fall through
-          case 8: break;
+          case 6: break;
           case 3:
             { System.out.println("Encontre un numero romano: "+yytext());
             }
             // fall through
-          case 9: break;
+          case 7: break;
           case 4:
-            { System.out.println("Error de sintaxis, para V: "+yytext()+" En la linea: "+yyline+"En la columna: "+yycolumn);
+            { System.out.println("Error en el numero romano: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
             }
             // fall through
-          case 10: break;
-          case 5:
-            { System.out.println("Error de sintaxis, para IV: "+yytext()+" En la linea: "+yyline+"En la columna: "+yycolumn);
-            }
-            // fall through
-          case 11: break;
-          case 6:
-            { System.out.println("Error de sintaxis, mas de tres 'I': "+yytext()+" En la linea: "+yyline+"En la columna: "+yycolumn);
-            }
-            // fall through
-          case 12: break;
+          case 8: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }

@@ -23,7 +23,7 @@ XL = {X}{L}
 XC = {X}{C}
 
 
-
+/*Forma correcta de los numeros*/
 ROMANO_I_V   = ({In}|{IV}|{V})                                      /*Numero de 1 a 5*/
 ROMANO_VI_IX = ({V}{In}|{IX})                                       /*Numero de 6 a 9*/
 ROMANO_X_MAS = {Xn}({ROMANO_VI_IX}|{ROMANO_I_V})?                   /*Numeros 10 a 39*/
@@ -42,21 +42,36 @@ IVx2 = {IV}+                                                    /*Errore donde: 
 VIx = {V}{Ix}                                                   /*Error en donde puede ser VIIII - VIIIIIIIIIII...*/
 IXn = {I}+{IX}                                                  /*Error de 9 IIIIX*/
 nIXn = {I}*{IX}{I}+                                             /*Error de forma IIIXIIII, IXIIIIIII, IXI*/
+CONJUNTO_ERROR = ({VIx}|{Ix}|{IVx}|{Vx}|{IVx2}|{IXn}|{nIXn})    /*Conjunto de errores de I - V y de VI IX*/ /*CASE*/
 /*Fin*/
 
 /*Errores con 10 a 39*/
 /*Error 1*/
-ERROR_1_0 = {X}{4}{X}*({ROMANO_VI_IX}|{ROMANO_I_V})?                /*Error donode: XXXX, XXXXXXXXXXXXXX. Y lo demas bien*/
-ERROR_2_0 = {Xn}({VIx}|{Ix}|{IVx}|{Vx}|{IVx2}|{IXn}|{nIXn})         /*Error donde: X [Algun error (VI-IX)] | [Algun error (I-V)],XX[Algun error (VI-IX)] | [Algun error (I-V)],XXX[Algun error (VI-IX)] | [Algun error (I-V)]*/
+ERROR_1_0 = {X}{4}{X}*({ROMANO_VI_IX}|{ROMANO_I_V})?                /*Error donode: XXXX, XXXXXXXXXXXXXX. Y lo demas bien*/ /*CASE*/
+ERROR_2_0 = {Xn}{CONJUNTO_ERROR}                                    /*Error donde: X [Algun error (VI-IX)] | [Algun error (I-V)],XX[Algun error (VI-IX)] | [Algun error (I-V)],XXX[Algun error (VI-IX)] | [Algun error (I-V)]*/ /*CASE*/
 
 /*Fin*/
 /*Erroes de 40 a 50*/
-ERROR_1_1 = {X}+{XL}{L}*({ROMANO_VI_IX}|{ROMANO_I_V})?             /*Error donde: XXLLLLLL, XXLLLLLLLL, XXL. Y todo lo demas bien*/
-ERROR_2_1 = {XL}{L}+({ROMANO_VI_IX}|{ROMANO_I_V})?                 /*Error donde: XLL, XLLLLLLLLLLL. Y todo lo demas bien*/
+ERROR_1_1 = {X}+{XL}{L}*({ROMANO_VI_IX}|{ROMANO_I_V})?             /*Error donde: XXLLLLLL, XXLLLLLLLL, XXL. Y todo lo demas bien*/ /*CASE*/
+ERROR_2_1 = {XL}{L}+({ROMANO_VI_IX}|{ROMANO_I_V})?                 /*Error donde: XLL, XLLLLLLLLLLL. Y todo lo demas bien*/ /*CASE*/
+ERROR_3_1 = {XL}{CONJUNTO_ERROR}                                   /*Error donde: XL [Error de I - IX]*/ /*CASE*/
+/*Fin*/
 
+/*Errores de 50 al 89*/
+ERROR_1_2 = {L}{L}+({ROMANO_VI_IX}|{ROMANO_I_V}|{ROMANO_X_MAS})?   /*Error donde: LLLLLLLL, LL[Todo lo demas bien]*/ /*CASE*/
+ERROR_2_2 = {L}({ERROR_1_0}|{ERROR_2_0})                           /*Error donde: L [Errores tipo: ERROR_1_0 ó ERROR_2_0]*/ /*CASE*/
+/*Fin*/
+
+/*Errorres de 90 - 100*/
+ERROR_1_3 = {X}+{XC}{C}*({ROMANO_VI_IX}|{ROMANO_I_V})?              /*Error donde: XXC [lo demas bien], XXCCCC [lo demas bien], XXCCC*/ /*CASE*/
+ERROR_2_3 = {XC}{C}+({ROMANO_VI_IX}|{ROMANO_I_V})?                  /*Error donde: XCCCCC, XCC [lo demas bien]*/ /*CASE*/
+ERROR_3_3 = {XC}({ERROR_1_0}|{ERROR_2_0})                           /*Error donde: XC [Errores tipo: ERROR_1_0 ó ERROR_2_0]*/ /*CASE*/
+ERROR_4_3 = {C}{C}+
+/*Fin*/
 %%
-/*Seccione en donde indicamos como queremos encontrar la informacion*/
-/*Esto indica que debe de hacer la variable, y es un codigo escrito en java*/
+
+/**********INICIO DE LOS CASE**********/
+
 /*Validacion de 1 al 5*/
 {ROMANO_I_V} {
 System.out.println("Encontre un numero romano: "+yytext());
@@ -86,26 +101,9 @@ System.out.println("Encontre un numero romano: "+yytext());
 System.out.println("Encontre un numero romano: "+yytext());
 }
 /*Errores*/
-{Ix} {
-System.out.println("Error de sintaxis, mas de tres 'I': "+yytext()+" En la linea: "+yyline+"En la columna: "+yycolumn);
-}
-{IVx} {
-System.out.println("Error de sintaxis, para IV: "+yytext()+" En la linea: "+yyline+"En la columna: "+yycolumn);
-}
-{Vx} {
-System.out.println("Error de sintaxis, para V: "+yytext()+" En la linea: "+yyline+"En la columna: "+yycolumn);
-}
-{IVx2} {
-System.out.println("Error de sintaxis, para IV: "+yytext()+" En la linea: "+yyline+"En la columna: "+yycolumn);
-}
-{VIx} {
-System.out.println("Error de sintaxis, para IV: "+yytext()+" En la linea: "+yyline+"En la columna: "+yycolumn);
-}
-{IXn} {
-System.out.println("Error de sintaxis, para IV: "+yytext()+" En la linea: "+yyline+"En la columna: "+yycolumn);
-}
-{nIXn} {
-System.out.println("Error de sintaxis, para IV: "+yytext()+" En la linea: "+yyline+"En la columna: "+yycolumn);
+
+{CONJUNTO_ERROR} {
+System.out.println("Error en el numero romano: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
 }
 /*Esto indica que hacer si encuentra un caracter que no se declarado, como se ha hecho con suma y con resta, esto funcionaria como un default en un swicht case en java   */
 .  { }
