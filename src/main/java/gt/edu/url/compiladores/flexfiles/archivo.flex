@@ -66,8 +66,7 @@ ERROR_3_2 = {L}({L}|{X})+((({ROMANO_VI_IX}|{ROMANO_I_V}|{ROMANO_X_MAS})?)|({ERRO
 /*Errorres de 90 - 100*/
 ERROR_1_3 = (({X}+{XC}{C}*)|({XC}{XC}+))({ROMANO_VI_IX}|{ROMANO_I_V})?            /*Error donde: XXC [lo demas bien], XXCCCC [lo demas bien], XXCCC, XCXC*/ /*CASE*/
 ERROR_2_3  = {XC}{C}+({ROMANO_VI_IX}|{ROMANO_I_V})?                               /*Error donde: XCCCCC, XCC [lo demas bien]*/ /*CASE*/
-ERROR_3_3 = ({XC}|({XC}{XC}{XC}+))({ERROR_1_0}|{ERROR_2_0})                       /*Error donde: XC [Errores tipo: ERROR_1_0 ó ERROR_2_0], XCXC[Errores tipo: ERROR_1_0 ó ERROR_2_0]*/ /*CASE*/
-ERROR_4_3 = {C}{C}+
+ERROR_3_3 = ({XC}|({XC}{XC}+))({ERROR_1_0}|{ERROR_2_0})                       /*Error donde: XC [Errores tipo: ERROR_1_0 ó ERROR_2_0], XCXC[Errores tipo: ERROR_1_0 ó ERROR_2_0]*/ /*CASE*/
 /*Fin*/ 
 %%
 
@@ -145,9 +144,6 @@ System.out.println("Error en el numero romano. Error tipo 2.3: "+yytext()+"\nEn 
 }
 {ERROR_3_3} {
 System.out.println("Error en el numero romano. Error tipo 3.3: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
-}
-{ERROR_4_3} {
-System.out.println("Error en el numero romano. Error tipo 4.3: "+yytext()+"\nEn la linea: "+yyline+"\nEn la columna: "+yycolumn);
 }
 /*Esto indica que hacer si encuentra un caracter que no se declarado, como se ha hecho con suma y con resta, esto funcionaria como un default en un swicht case en java   */
 .  { }
