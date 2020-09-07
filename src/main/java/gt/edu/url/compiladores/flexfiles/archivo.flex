@@ -35,7 +35,7 @@ ROMANO_XC    = {XC}({ROMANO_I_V}|{ROMANO_VI_IX})?                   /*De 90 a 99
 Ix   = {I}{4}{I}*                                               /*Error donde: IIIII,IIIIIIII */
 IVx  = {I}{I}+{V}+({I}+{V})*                                    /*Error donde: IIV, IIIIIVI, IIVVVVIVIVIVIIVIVVV*/
 Vx   = {V}{V}+                                                  /*Error donde: VV, VVVVVVVVVVV*/
-IVx2 = {IV}+                                                    /*Errore donde: IVIVIVIVIV, IVIV*/
+IVx2 = {IV}{IV}+                                                    /*Errore donde: IVIVIVIVIV, IVIV*/
 /*Fin*/
 
 /*Errores con VI - IX*/
@@ -65,10 +65,10 @@ ERROR_3_2 = {L}({L}|{X})+((({ROMANO_VI_IX}|{ROMANO_I_V}|{ROMANO_X_MAS})?)|({ERRO
 
 /*Errorres de 90 - 100*/
 ERROR_1_3 = (({X}+{XC}{C}*)|({XC}{XC}+))({ROMANO_VI_IX}|{ROMANO_I_V})?            /*Error donde: XXC [lo demas bien], XXCCCC [lo demas bien], XXCCC, XCXC*/ /*CASE*/
-ERROR_2_3 = {XC}{C}+({ROMANO_VI_IX}|{ROMANO_I_V})?                                /*Error donde: XCCCCC, XCC [lo demas bien]*/ /*CASE*/
+ERROR_2_3  = {XC}{C}+({ROMANO_VI_IX}|{ROMANO_I_V})?                               /*Error donde: XCCCCC, XCC [lo demas bien]*/ /*CASE*/
 ERROR_3_3 = ({XC}|({XC}{XC}{XC}+))({ERROR_1_0}|{ERROR_2_0})                       /*Error donde: XC [Errores tipo: ERROR_1_0 ó ERROR_2_0], XCXC[Errores tipo: ERROR_1_0 ó ERROR_2_0]*/ /*CASE*/
 ERROR_4_3 = {C}{C}+
-/*Fin*/
+/*Fin*/ 
 %%
 
 /**********INICIO DE LOS CASE**********/
