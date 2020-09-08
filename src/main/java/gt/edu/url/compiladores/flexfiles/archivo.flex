@@ -36,15 +36,15 @@ ROMANO_L_MAS   = {L}({ROMANO_VI_IX}|{ROMANO_I_V}|{ROMANO_X_MAS})?     /*De 50 a 
 ROMANO_XC      = {XC}({ROMANO_I_V}|{ROMANO_VI_IX})?                   /*De 90 a 99*/
 CONJUNTO_ANT_C = ({ROMANO_I_V}|{ROMANO_VI_IX}|{ROMANO_X_MAS}|{ROMANO_XL}|{ROMANO_L_MAS}|{ROMANO_XC}) /*Tiene el conjunto de validaciones de numeros antes del 100*/
 ROMANO_C_CD    = {Cn}{CONJUNTO_ANT_C}?                                 /*Numeros del 100 al 399*/
-ROMANO_CD_D    = {CD}{CONJUNTO_ANT_C}?                                /*Numeros del 400 al 499*/
-ROMANO_D_CM    = {D}{ROMANO_C_CD}?                                     /*Numeros del 500 al 899*/
+ROMANO_CD_D    = {CD}{CONJUNTO_ANT_C}?                                 /*Numeros del 400 al 499*/
+ROMANO_D_CM    = {D}({ROMANO_C_CD}|{CONJUNTO_ANT_C})?                  /*Numeros del 500 al 899*/
 ROMANO_CM_M    = {CM}{CONJUNTO_ANT_C}?                                 /*Numeros del 900 al 999*/
 
 /*Errores de I - V*/
 Ix   = {I}{4}{I}*                                               /*Error donde: IIIII,IIIIIIII */
 IVx  = {I}{I}+{V}+({I}+{V})*                                    /*Error donde: IIV, IIIIIVI, IIVVVVIVIVIVIIVIVVV*/
 Vx   = {V}{V}+                                                  /*Error donde: VV, VVVVVVVVVVV*/
-IVx2 = {IV}{IV}+                                                    /*Errore donde: IVIVIVIVIV, IVIV*/
+IVx2 = {IV}{IV}+                                                /*Errore donde: IVIVIVIVIV, IVIV*/
 /*Fin*/
 
 /*Errores con VI - IX*/
@@ -111,7 +111,26 @@ System.out.println("Encontre un numero romano: "+yytext());
 {C} {
 System.out.println("Encontre un numero romano: "+yytext());
 }
-
+/*Validacion del 100 al 399*/
+{ROMANO_C_CD} {
+System.out.println("Encontre un numero romano: "+yytext());
+}
+/*Validacion del 400 al 499*/
+{ROMANO_CD_D} {
+System.out.println("Encontre un numero romano: "+yytext());
+}
+/*Validacion del 500 al 899*/
+{ROMANO_D_CM } {
+System.out.println("Encontre un numero romano: "+yytext());
+}
+/*Validacion del 900 al 999*/
+{ROMANO_CM_M} {
+System.out.println("Encontre un numero romano: "+yytext());
+}
+/*Validacion del 1000*/
+{M} {
+System.out.println("Encontre un numero romano: "+yytext());
+}
 /**********Errores***********/
 /*Errores del 1 al 9*/
 {CONJUNTO_ERROR} {
