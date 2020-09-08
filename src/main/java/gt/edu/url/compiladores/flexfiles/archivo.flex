@@ -15,21 +15,30 @@ V  = "V"
 X  = "X"
 L  = "L"
 C  = "C"
+D  = "D"
+M  = "M"
 In = {I}{1,3}
 Xn = {X}{1,3}
+Cn = {C}{1,3}
 IV = {I}{V}
 IX = {I}{X}
 XL = {X}{L}
 XC = {X}{C}
-
+CD = {C}{D}
+CM = {C}{M}
 
 /*Forma correcta de los numeros*/
-ROMANO_I_V   = ({In}|{IV}|{V})                                      /*Numero de 1 a 5*/
-ROMANO_VI_IX = ({V}{In}|{IX})                                       /*Numero de 6 a 9*/
-ROMANO_X_MAS = {Xn}({ROMANO_VI_IX}|{ROMANO_I_V})?                   /*Numeros 10 a 39*/
-ROMANO_XL    = {XL}({ROMANO_VI_IX}|{ROMANO_I_V})?                   /*Numeros de 40 a 49*/
-ROMANO_L_MAS = {L}({ROMANO_VI_IX}|{ROMANO_I_V}|{ROMANO_X_MAS})?     /*De 50 a 89*/
-ROMANO_XC    = {XC}({ROMANO_I_V}|{ROMANO_VI_IX})?                   /*De 90 a 99*/
+ROMANO_I_V     = ({In}|{IV}|{V})                                      /*Numero de 1 a 5*/
+ROMANO_VI_IX   = ({V}{In}|{IX})                                       /*Numero de 6 a 9*/
+ROMANO_X_MAS   = {Xn}({ROMANO_VI_IX}|{ROMANO_I_V})?                   /*Numeros 10 a 39*/
+ROMANO_XL      = {XL}({ROMANO_VI_IX}|{ROMANO_I_V})?                   /*Numeros de 40 a 49*/
+ROMANO_L_MAS   = {L}({ROMANO_VI_IX}|{ROMANO_I_V}|{ROMANO_X_MAS})?     /*De 50 a 89*/
+ROMANO_XC      = {XC}({ROMANO_I_V}|{ROMANO_VI_IX})?                   /*De 90 a 99*/
+CONJUNTO_ANT_C = ({ROMANO_I_V}|{ROMANO_VI_IX}|{ROMANO_X_MAS}|{ROMANO_XL}|{ROMANO_L_MAS}|{ROMANO_XC}) /*Tiene el conjunto de validaciones de numeros antes del 100*/
+ROMANO_C_CD    = {Cn}{CONJUNTO_ANT_C}?                                 /*Numeros del 100 al 399*/
+ROMANO_CD_D    = {CD}{CONJUNTO_ANT_C}?                                /*Numeros del 400 al 499*/
+ROMANO_D_CM    = {D}{ROMANO_C_CD}?                                     /*Numeros del 500 al 899*/
+ROMANO_CM_M    = {CM}{CONJUNTO_ANT_C}?                                 /*Numeros del 900 al 999*/
 
 /*Errores de I - V*/
 Ix   = {I}{4}{I}*                                               /*Error donde: IIIII,IIIIIIII */
